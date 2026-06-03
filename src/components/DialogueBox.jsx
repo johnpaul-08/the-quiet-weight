@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-const DialogueBox = ({ scene, onComplete }) => {
+const DialogueBox = ({ scene, onComplete, noBackground = false }) => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isTyping, setIsTyping] = useState(false);
@@ -55,15 +55,18 @@ const DialogueBox = ({ scene, onComplete }) => {
             onClick={handleClick}
         >
 
-            {/* Background */}
-            <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url('/assets/backgrounds/${scene.background}.png')` }}
-            />
+            {/* Background — only if noBackground is false */}
+            {!noBackground && (
+                <div
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{ backgroundImage: `url('/assets/backgrounds/${scene.background}.png')` }}
+                />
+            )}
 
-            {/* Dark overlay */}
-            <div className="absolute inset-0 bg-black/40" />
-
+            {/* Dark overlay — only if noBackground is false */}
+            {!noBackground && (
+                <div className="absolute inset-0 bg-black/40" />
+            )}
             {/* Dialogue Box */}
             <div className="relative z-10 m-6 rounded-2xl bg-black/70 backdrop-blur-sm border border-white/10 p-6 min-h-[160px]">
 

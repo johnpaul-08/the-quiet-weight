@@ -94,7 +94,7 @@ const TextMessageChoice = ({ scene, onComplete }) => {
 
             {/* Phone Frame */}
             <div className="relative z-10 flex items-center justify-center h-full">
-                <div className="w-80 h-[520px] bg-gray-950 rounded-[2.5rem] border border-white/10 shadow-2xl flex flex-col overflow-hidden">
+                <div className="w-80 h-130 bg-gray-950 rounded-[2.5rem] border border-white/10 shadow-2xl flex flex-col overflow-hidden">
 
                     {/* Phone top bar */}
                     <div className="flex items-center gap-3 px-5 py-4 border-b border-white/10 bg-gray-900">
@@ -202,6 +202,7 @@ const TextMessageChoice = ({ scene, onComplete }) => {
                         background: scene.background
                     }}
                     onComplete={handlePauseDialogueComplete}
+                    noBackground
                 />
             )}
 
@@ -213,6 +214,7 @@ const TextMessageChoice = ({ scene, onComplete }) => {
                         background: scene.background
                     }}
                     onComplete={onComplete}
+                    noBackground
                 />
             )}
 
