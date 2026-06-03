@@ -70,7 +70,7 @@ const SocialFeed = ({ scene, onComplete }) => {
                 <motion.div
                     animate={{ opacity: phase === "scrolling" ? 1 : 0.4 }}
                     transition={{ duration: 0.5 }}
-                    className="w-72 h-[520px] bg-gray-950 rounded-[2.5rem] border border-white/10 shadow-2xl flex flex-col overflow-hidden"
+                    className="w-72 h-130 bg-gray-950 rounded-[2.5rem] border border-white/10 shadow-2xl flex flex-col overflow-hidden"
                 >
 
                     {/* Instagram-style header */}

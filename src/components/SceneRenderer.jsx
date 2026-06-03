@@ -1,19 +1,41 @@
 import chapter1 from "../data/chapter1.json";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import DialogueBox from "./DialogueBox";
 import ObservationScene from "./ObservationScene";
 import TextMessage from "./TextMessage";
 import TextMessageChoice from "./TextMessageChoice";
 import SocialFeed from "./SocialFeed";
+import SignalDetection from "./SignalDetection";
+import ReflectionScreen from "./ReflectionScreen";
 
 const SceneRenderer = () => {
     const [currentSceneId, setCurrentSceneId] = useState("cafeteria_intro");
 
     const scene = chapter1.scenes.find(s => s.id === currentSceneId);
 
-    const handleComplete = (nextSceneId = scene.next) => {
-        setCurrentSceneId(nextSceneId);
+    const sceneRef = useRef(scene);
+    sceneRef.current = scene;
+
+    if (!scene) {
+        return (
+            <div className="w-full h-screen bg-gray-950 flex items-center justify-center">
+                <p className="text-white/40 text-sm">chapter 2 coming soon...</p>
+            </div>
+        );
+    }
+
+    // const handleComplete = (nextSceneId = scene.next) => {
+    //     setCurrentSceneId(nextSceneId);
+    // };
+
+    const handleComplete = (nextSceneId) => {
+        const next = nextSceneId ?? sceneRef.current.next;
+        console.log("handleComplete called");
+        console.log("nextSceneId param:", nextSceneId);
+        console.log("sceneRef.current:", sceneRef.current);
+        console.log("moving to:", next);
+        setCurrentSceneId(next);
     };
 
     const renderScene = () => {
@@ -30,9 +52,9 @@ const SceneRenderer = () => {
             case "social_feed":
                 return <SocialFeed scene={scene} onComplete={handleComplete} />;
             case "minigame":
-                return <div>minigame placeholder</div>;
+                return <SignalDetection scene={scene} onComplete={handleComplete} />;
             case "reflection":
-                return <div>reflection placeholder</div>;
+                return <ReflectionScreen scene={scene} onComplete={handleComplete} />;
             default:
                 return <div>Unknown scene type: {scene.type}</div>;
         }
