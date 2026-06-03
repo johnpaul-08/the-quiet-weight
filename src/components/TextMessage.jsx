@@ -100,6 +100,7 @@ const TextMessage = ({ scene, onComplete }) => {
                         background: scene.background
                     }}
                     onComplete={onComplete}
+                    noBackground
                 />
             )}
 

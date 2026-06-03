@@ -5,6 +5,7 @@ import DialogueBox from "./DialogueBox";
 import ObservationScene from "./ObservationScene";
 import TextMessage from "./TextMessage";
 import TextMessageChoice from "./TextMessageChoice";
+import SocialFeed from "./SocialFeed";
 
 const SceneRenderer = () => {
     const [currentSceneId, setCurrentSceneId] = useState("cafeteria_intro");
@@ -27,7 +28,7 @@ const SceneRenderer = () => {
             case "text_message_choice":
                 return <TextMessageChoice scene={scene} onComplete={handleComplete} />;
             case "social_feed":
-                return <div>social feed placeholder</div>;
+                return <SocialFeed scene={scene} onComplete={handleComplete} />;
             case "minigame":
                 return <div>minigame placeholder</div>;
             case "reflection":
