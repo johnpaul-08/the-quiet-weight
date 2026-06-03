@@ -26,7 +26,7 @@
         {
           "id": "clue_photo",
           "target": "phone_notification",
-          "label": "Maya's phone — a notification",
+          "label": "Maya's phone",
           "position": {
             "x": 62,
             "y": 46
