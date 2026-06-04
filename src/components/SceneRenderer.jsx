@@ -11,7 +11,7 @@ import SignalDetection from "./SignalDetection";
 import DragClassify from "./DragClassify";
 import ReflectionScreen from "./ReflectionScreen";
 
-const SceneRenderer = ({ startSceneId = "cafeteria_intro" }) => {
+const SceneRenderer = ({ startSceneId = "cafeteria_intro", onChapterEnd }) => {
     const [currentSceneId, setCurrentSceneId] = useState(startSceneId);
 
     const chapters = [...chapter1.scenes, ...chapter2.scenes];
@@ -51,7 +51,7 @@ const SceneRenderer = ({ startSceneId = "cafeteria_intro" }) => {
                     return <DragClassify scene={scene} onComplete={handleComplete} />;
                 return <SignalDetection scene={scene} onComplete={handleComplete} />;
             case "reflection":
-                return <ReflectionScreen scene={scene} onComplete={handleComplete} />;
+                return <ReflectionScreen scene={scene} onComplete={handleComplete} onChapterEnd={onChapterEnd} />;
             default:
                 return <div>Unknown scene type: {scene.type}</div>;
         }

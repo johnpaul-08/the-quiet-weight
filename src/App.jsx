@@ -28,7 +28,7 @@ function App() {
           transition={{ duration: 0.5 }}
           style={{ position: "absolute", width: "100%" }}
         >
-          <SceneRenderer startSceneId={startSceneId} />
+          <SceneRenderer startSceneId={startSceneId} onChapterEnd={() => setStartSceneId(null)} />
         </motion.div>
       )}
     </AnimatePresence>

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useGame } from "../context/GameContext";
 
-const ReflectionScreen = ({ scene, onComplete }) => {
+const ReflectionScreen = ({ scene, onComplete, onChapterEnd }) => {
 
     const { score } = useGame();
     const [show, setShow] = useState(false);
@@ -14,9 +14,9 @@ const ReflectionScreen = ({ scene, onComplete }) => {
 
     return (
         <div className="relative w-full h-screen flex flex-col items-center justify-center bg-gray-950 overflow-y-auto">
-             <div
+            <div
                 className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url('/assets/backgrounds/bedroom.png')` }}
+                style={{ backgroundImage: `url('/assets/backgrounds/${scene.background}.png')` }}
             />
             <div className="absolute inset-0 bg-black/10 backdrop-blur-xs" />
 
@@ -135,10 +135,10 @@ const ReflectionScreen = ({ scene, onComplete }) => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 3.6 }}
-                    onClick={onComplete}
+                    onClick={() => onChapterEnd?.()}
                     className="w-full py-4 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-sm font-medium transition-all cursor-pointer"
                 >
-                    continue to chapter 2 →
+                    back to chapters →
                 </motion.button>
 
             </motion.div>
