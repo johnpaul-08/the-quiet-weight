@@ -187,7 +187,7 @@
         {
             "id": "friend_group",
             "type": "text_message_choice",
-            "background": "office",
+            "background": "office_chat",
             "messages": [
                 {
                     "sender": "preethi",
@@ -348,7 +348,7 @@
         {
             "id": "phone_call_mom",
             "type": "dialogue",
-            "background": "office",
+            "background": "office_hallway",
             "lines": [
                 {
                     "speaker": "narration",
@@ -408,7 +408,7 @@
         {
             "id": "evening_routine",
             "type": "dialogue",
-            "background": "apartment_night_3",
+            "background": "apartment_evening",
             "lines": [
                 {
                     "speaker": "narration",
@@ -456,7 +456,7 @@
         {
             "id": "digital_connection",
             "type": "dialogue",
-            "background": "apartment_night_3",
+            "background": "apartment_gaming",
             "lines": [
                 {
                     "speaker": "narration",
@@ -508,7 +508,7 @@
         {
             "id": "cancelled_plan",
             "type": "text_message_choice",
-            "background": "apartment_night_3",
+            "background": "sarah_apartment_night",
             "messages": [
                 {
                     "sender": "preethi",
