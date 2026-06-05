@@ -25,7 +25,7 @@ const chapters = [
         data: chapter3,
         startSceneId: "chapter3_start",
         number: 3,
-        background: "park",
+        background: "balcony",
         accentColor: "pink",
         tag: "Chapter 3",
     },
