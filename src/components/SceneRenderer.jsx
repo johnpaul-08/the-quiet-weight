@@ -4,6 +4,7 @@ import chapter1 from "../data/chapter1/chapter1.json";
 import chapter2 from "../data/chapter2/chapter2.json";
 import chapter3 from "../data/chapter3/chapter3.json";
 import daniel from "../data/chapter4/daniel.json";
+import saya from "../data/chapter4/saya.json";
 import DialogueBox from "./DialogueBox";
 import ObservationScene from "./ObservationScene";
 import TextMessage from "./TextMessage";
@@ -13,11 +14,14 @@ import SignalDetection from "./SignalDetection";
 import DragClassify from "./DragClassify";
 import ReflectionScreen from "./ReflectionScreen";
 import SpotPattern from "./SpotPattern";
+import ConversationBuilder from "./ConversationBuilder";
+import InnerVoice from "./InnerVoice";
+import FindYourVoice from "./FindYourVoice";
 
 const SceneRenderer = ({ startSceneId = "cafeteria_intro", onChapterEnd }) => {
     const [currentSceneId, setCurrentSceneId] = useState(startSceneId);
 
-    const chapters = [...chapter1.scenes, ...chapter2.scenes, ...chapter3.scenes, ...daniel.scenes];
+    const chapters = [...chapter1.scenes, ...chapter2.scenes, ...chapter3.scenes, ...daniel.scenes, ...saya.scenes];
     const scene = chapters.find(s => s.id === currentSceneId);
 
     const sceneRef = useRef(scene);
@@ -43,9 +47,17 @@ const SceneRenderer = ({ startSceneId = "cafeteria_intro", onChapterEnd }) => {
                 return <SocialFeed scene={scene} onComplete={handleComplete} />;
             case "minigame":
                 if (scene.minigameId === "drag_classify")
-                    return <DragClassify scene={scene} onComplete={handleComplete} />;
+                    return <DragMinigame scene={scene} onComplete={handleComplete} />;
                 if (scene.minigameId === "spot_pattern")
                     return <SpotPattern scene={scene} onComplete={handleComplete} />;
+                if (scene.minigameId === "memory_box")
+                    return <MemoryBox scene={scene} onComplete={handleComplete} />;
+                if (scene.minigameId === "conversation_builder")
+                    return <ConversationBuilder scene={scene} onComplete={handleComplete} />;
+                if (scene.minigameId === "inner_voice")
+                    return <InnerVoice scene={scene} onComplete={handleComplete} />;
+                if (scene.minigameId === "find_your_voice")
+                    return <FindYourVoice scene={scene} onComplete={handleComplete} />;
                 return <SignalDetection scene={scene} onComplete={handleComplete} />;
             case "reflection":
                 return <ReflectionScreen scene={scene} onComplete={handleComplete} onChapterEnd={onChapterEnd} />;
