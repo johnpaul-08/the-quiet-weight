@@ -24,7 +24,7 @@ const chapters = [
                 ageGroup: "Teenager (13)",
                 description: "Liam wants connection but has spent years in an environment where emotions are rarely discussed. He carries the habit of silence with him everywhere.",
                 startSceneId: "liam_intro",
-                background: "liam_bedroom",
+                background: "liam_assembly_hall",
             },
         ],
     },
